@@ -1,0 +1,88 @@
+@import url("https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  [data-theme="light"] {
+    color-scheme: light;
+    --color-background-heavy: 248 248 248;
+    --color-background-light: 255 255 255;
+    --color-complementary-text-color: 30 30 30;
+    --color-primary: 20 130 255;
+  }
+
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --color-background-heavy: 35 35 35;
+    --color-background-light: 30 30 30;
+    --color-complementary-text-color: 255 255 255;
+    --color-primary: 15 95 186;
+  }
+
+  :root {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.anchor-post-heading {
+  @apply after:content-['↗'] cursor-pointer absolute left-0 -translate-x-[1.4rem] translate-y-1 text-sm opacity-20 hidden tablet:block;
+}
+
+:has(> .anchor-post-heading) {
+  @apply scroll-m-12 relative inline-block;
+}
+
+giscus-widget {
+  @apply flex max-w-[768px] mx-auto pb-32 tablet:px-8 px-4;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::before,
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  @apply content-[""];
+}
+
+.prose pre {
+  @apply border-[1px] border-textColor/10;
+}
+
+.prose :where(code):not(:where(pre *)) {
+  @apply bg-textColor/10 text-textColor rounded px-1 py-0.5;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  @apply p-2 text-[0.8rem] leading-normal;
+}
+
+[data-rehype-pretty-code-figure] code {
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply inline-block w-4 text-right text-[0.6rem] opacity-20 mr-4;
+}
+
+.prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply pl-4;
+}
+
+[data-theme="light"] [data-rehype-pretty-code-figure] pre,
+[data-theme="light"] [data-rehype-pretty-code-figure] pre span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+[data-theme="dark"] [data-rehype-pretty-code-figure] pre,
+[data-theme="dark"] [data-rehype-pretty-code-figure] pre span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
