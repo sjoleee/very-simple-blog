@@ -6,7 +6,7 @@ import { MetadataRoute } from "next";
 
 const sitemap = (): MetadataRoute.Sitemap => {
   const posts: MetadataRoute.Sitemap = allPosts.map((post) => ({
-    url: `${USER_INFORMATIONS.domain}/post/${post.slug}`,
+    url: `${USER_INFORMATIONS.domain}/${post.slug}`,
     lastModified: new Date(post.date).toISOString().split("T")[0],
     changeFrequency: "weekly",
   }));

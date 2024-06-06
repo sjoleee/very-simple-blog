@@ -38,7 +38,7 @@ export const generateMetadata = async ({ params }: PostProps): Promise<Metadata>
       description: post.description,
       type: "article",
       publishedTime: post.date,
-      url: `${USER_INFORMATIONS.domain}/post/${post.slug}`,
+      url: `${USER_INFORMATIONS.domain}/${post.slug}`,
       images: post.thumbnail ?? "/images/share.png",
     },
   };
