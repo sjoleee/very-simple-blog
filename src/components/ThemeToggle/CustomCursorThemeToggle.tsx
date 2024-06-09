@@ -1,7 +1,6 @@
-import { MouseEvent, useEffect, useRef, useState } from "react";
-
 import { ThemeToggleProps } from "./ThemeToggle";
 
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import useTheme from "@/hooks/useTheme";
 import cn from "@/utils/cn";
 import { AnimatePresence, MotionProps, m, useMotionValue } from "framer-motion";
@@ -36,9 +35,9 @@ const CustomCursorThemeToggle = ({
   const handleMouseMove = (e: MouseEvent<HTMLButtonElement>) => {
     if (rect) {
       const scrollX = window.scrollX;
-      const scrollY = window.scrollY;
+
       x.set(e.clientX - rect.left + scrollX);
-      y.set(e.clientY - rect.top + scrollY + 20);
+      y.set(e.clientY - rect.top + 20);
     }
   };
   const handleMouseLeave = () => {
