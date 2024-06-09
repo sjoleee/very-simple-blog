@@ -27,7 +27,7 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col gap-4">
         <div className="flex justify-center items-center gap-8">
-          {"github" in USER_INFORMATIONS && typeof USER_INFORMATIONS["github"] === "string" && (
+          {"github" in USER_INFORMATIONS && !!USER_INFORMATIONS["github"] && (
             <a
               href={USER_INFORMATIONS["github"]}
               target="_blank"
@@ -40,7 +40,7 @@ const Sidebar = () => {
             </a>
           )}
 
-          {"resume" in USER_INFORMATIONS && typeof USER_INFORMATIONS["resume"] === "string" && (
+          {"resume" in USER_INFORMATIONS && !!USER_INFORMATIONS["resume"] && (
             <a
               href={USER_INFORMATIONS["resume"]}
               target="_blank"
