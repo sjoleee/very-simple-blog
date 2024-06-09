@@ -66,7 +66,7 @@ const MainPageHeader = ({ className }: MainPageHeaderProps) => {
           </div>
 
           <div className="flex gap-4 w-full items-center justify-end">
-            {"github" in USER_INFORMATIONS && typeof USER_INFORMATIONS["github"] === "string" && (
+            {"github" in USER_INFORMATIONS && !!USER_INFORMATIONS["github"] && (
               <a
                 href={USER_INFORMATIONS["github"]}
                 target="_blank"
@@ -79,7 +79,7 @@ const MainPageHeader = ({ className }: MainPageHeaderProps) => {
               </a>
             )}
 
-            {"resume" in USER_INFORMATIONS && typeof USER_INFORMATIONS["resume"] === "string" && (
+            {"resume" in USER_INFORMATIONS && !!USER_INFORMATIONS["resume"] && (
               <a
                 href={USER_INFORMATIONS["resume"]}
                 target="_blank"
